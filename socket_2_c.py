@@ -9,11 +9,11 @@ s.connect(('127.0.0.1', 7778))
 
 t0 = time.time()
 print(s.recv(1024).decode('utf-8'))
-for data in [b'Michael', b'Michael', b'Michael', ]:
-    s.send(data)
+for data in ['Michael', 'Michael', 'Michael', ]:
+    s.send(data.encode('utf-8'))
     print(s.recv(1024).decode('utf-8'))
 t1 = time.time()
 print(t1 - t0)
-input()
+# input()
 s.send(b'exit')
 # s.close
